@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "optirec",
+  "version": "${version}",
+  "name": "OptiRec — Запись экрана",
+  "description": "Запись полного экрана Minecraft (включая GUI, чат и меню) в MP4 через FFmpeg. Клавиша для старта/стопа — настраивается в меню.",
+  "authors": ["vizor"],
+  "environment": "client",
+  "entrypoints": {
+    "client": ["com.vizor.optirec.OptirecMod"]
+  },
+  "mixins": [
+    "optirec.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.0",
+    "fabric": "*",
+    "minecraft": "~1.16.5"
+  }
+}
