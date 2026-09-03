@@ -4,6 +4,7 @@ import net.fabricmc.loader.api.FabricLoader;
 
 import java.io.File;
 import java.io.OutputStream;
+import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -127,7 +128,10 @@ public class Recorder {
 
         try {
             byte[] bytes = new byte[width * height * 4];
-            buffer.duplicate().rewind().get(bytes);
+            ByteBuffer dup = buffer.duplicate();
+            Buffer d = dup;
+            d.rewind();
+            dup.get(bytes);
             QUEUE.offer(bytes);
             lastFrameNs = now;
         } catch (Exception ignored) {
