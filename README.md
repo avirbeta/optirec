@@ -31,4 +31,4 @@ gradle build --no-daemon
 4. Запусти игру, нажми **F8** для записи.
 
 ## Автор
-vany201847dody-art
+avirbeta
