@@ -64,8 +64,8 @@ public class OptirecMod implements ClientModInitializer {
                 RecSettingsScreen.toast("§a● Идёт запись... (стоп — F8)", 3500);
                 sendChat(mc, "§a[OptiRec] ● Идёт запись экрана... (стоп — F8)");
             } else {
-                RecSettingsScreen.toast("§4Ошибка: не найден FFmpeg", 4000);
-                sendChat(mc, "§4[OptiRec] Ошибка: не найден FFmpeg");
+                RecSettingsScreen.toast("§4Ошибка: " + Recorder.getLastError(), 4500);
+                sendChat(mc, "§4[OptiRec] Ошибка: " + Recorder.getLastError());
             }
         }
     }

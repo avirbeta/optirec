@@ -27,11 +27,16 @@ public class CaptureManager {
         int h = mc.getWindow().getFramebufferHeight();
         if (w <= 0 || h <= 0) return;
 
+        // Если окно изменило размер, запись всё равно идёт в старом разрешении.
+        // Не тратим glReadPixels впустую.
+        if (w != Recorder.getFrameWidth() || h != Recorder.getFrameHeight()) return;
+
         int size = w * h * 4;
         if (pixelBuffer == null || pixelBuffer.capacity() < size) {
             pixelBuffer = ByteBuffer.allocateDirect(size);
             flipBuffer = ByteBuffer.allocateDirect(size);
         }
+
         width = w;
         height = h;
 

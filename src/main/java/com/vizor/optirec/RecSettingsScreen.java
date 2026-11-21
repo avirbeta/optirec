@@ -66,7 +66,7 @@ public class RecSettingsScreen extends Screen {
             if (Recorder.start(w, h)) {
                 toast("§a● Идёт запись... Стоп — клавиша (по умолч. F8)", 3500);
             } else {
-                toast("§4Ошибка: не найден FFmpeg", 4000);
+                toast("§4Ошибка: " + Recorder.getLastError(), 4500);
             }
         }
     }
@@ -86,7 +86,7 @@ public class RecSettingsScreen extends Screen {
         this.renderBackground(matrices);
         net.minecraft.client.gui.DrawableHelper.drawCenteredText(matrices, this.textRenderer,
                 "§6§lOptiRec §7— §fзапись полного экрана (GUI+чат)", this.width / 2, 12, 0xFFFFFF);
-        drawCenteredText(matrices, "Файл → .minecraft/recordings/rec_....mp4 (FFmpeg, 30 FPS)", 34, 0xAAAAAA);
+        drawCenteredText(matrices, "Файл → .minecraft/recordings/rec_....mp4 (FFmpeg, 24 FPS)", 34, 0xAAAAAA);
         drawCenteredText(matrices, "F8 — старт/стоп записи, F9 — это меню", 48, 0xAAAAAA);
 
         if (System.currentTimeMillis() < statusUntil && !statusMsg.isEmpty()) {
